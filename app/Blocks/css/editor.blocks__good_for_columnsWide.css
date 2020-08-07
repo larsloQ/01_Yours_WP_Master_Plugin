@@ -1,0 +1,58 @@
+/* based on wordpress - core columns 
+ LFK 2019-01-17_12.57.14
+
+ trying to understand the css markup
+ */
+.wp-block-hero {
+  max-width: 903px; }
+
+/* Width of "wide" blocks */
+.wp-block[data-align="wide"], .wp-block[data-type="liaison/teamtemplate"], .wp-block[data-type="core/columns"] {
+  max-width: 1080px; }
+
+.wp-fakeblock.wide {
+  display: flex; }
+  .wp-fakeblock.wide .editor-inner-blocks {
+    width: 100%;
+  }
+  .wp-fakeblock.wide .half, .wp-fakeblock.wide .half {
+    flex-basis: 50.00%;
+    transform-origin: center center;
+    transform: none; }
+
+.wp-block[data-align="full"] {
+  max-width: 1400px;
+  margin: 0 auto; }
+
+.edit-post-visual-editor .wp-block[data-type="larslo/hero"] .editor-block-toolbar > .components-toolbar {
+  display: none; }
+
+/*  toolbar, blockcontrols */
+.larslo-toolbar-button-toggle.notyet {
+  background-color: rgba(255, 0, 0, 0.5); }
+
+.wp-block-hero.align-wide {
+  position: relative; }
+  .wp-block-hero.align-wide .wp-block-hero-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+    justify-items: stretch;
+    grid-auto-flow: row; }
+    .wp-block-hero.align-wide .wp-block-hero-inner:not(.grid-margin-x) {
+      grid-gap: 0; }
+    .wp-block-hero.align-wide .wp-block-hero-inner .master-toggle {
+      grid-column: 1 / span 2;
+      grid-row: 1;
+      text-align: right; }
+      .wp-block-hero.align-wide .wp-block-hero-inner .master-toggle > div {
+        position: absolute;
+        display: inline-block;
+        top: -10px; }
+        .wp-block-hero.align-wide .wp-block-hero-inner .master-toggle > div > div {
+          margin-bottom: 0; }
+    .wp-block-hero.align-wide .wp-block-hero-inner.image-right .image-wrapper.grid-item {
+      grid-column: 2; }
+    .wp-block-hero.align-wide .wp-block-hero-inner .grid-item {
+      grid-row: 2; }
+

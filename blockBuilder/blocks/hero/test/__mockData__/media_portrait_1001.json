@@ -1,0 +1,58 @@
+{
+  "id": 67,
+  "title": "Collagen_Jana_Flow_Sky",
+  "filename": "Collagen_Jana_Flow_Sky.jpg",
+  "url": "http://localhost/janapolasek/wp-content/uploads/2018/12/Collagen_Jana_Flow_Sky.jpg",
+  "link": "http://localhost/janapolasek/home/collagen_jana_flow_sky/",
+  "alt": "",
+  "author": "1",
+  "description": "",
+  "caption": "",
+  "name": "collagen_jana_flow_sky",
+  "status": "inherit",
+  "uploadedTo": 7,
+  "date": "2018-12-26T09:39:09.000Z",
+  "modified": "2018-12-26T09:39:09.000Z",
+  "menuOrder": 0,
+  "mime": "image/jpeg",
+  "type": "image",
+  "subtype": "jpeg",
+  "icon": "http://localhost/janapolasek/wp-content/mu-plugins/media-library-assistant/images/crystal/image.png",
+  "dateFormatted": "December 26, 2018",
+  "nonces": {
+    "update": "36775d2594",
+    "delete": "e4d3f0fbb3",
+    "edit": "ca34681aad"
+  },
+  "editLink": "http://localhost/janapolasek/wp-admin/post.php?post=67&action=edit",
+  "meta": false,
+  "authorName": "janapolasek",
+  "uploadedToLink": "http://localhost/janapolasek/wp-admin/post.php?post=7&action=edit",
+  "uploadedToTitle": "Home",
+  "filesizeInBytes": 141996,
+  "filesizeHumanReadable": "139 KB",
+  "context": "",
+  "height": 1001,
+  "width": 812,
+  "orientation": "portrait",
+  "sizes": {
+    "thumbnail": {
+      "height": 150,
+      "width": 150,
+      "url": "http://localhost/janapolasek/wp-content/uploads/2018/12/Collagen_Jana_Flow_Sky-150x150.jpg",
+      "orientation": "landscape"
+    },
+    "medium": {
+      "height": 300,
+      "width": 243,
+      "url": "http://localhost/janapolasek/wp-content/uploads/2018/12/Collagen_Jana_Flow_Sky-243x300.jpg",
+      "orientation": "portrait"
+    },
+    "full": {
+      "url": "http://localhost/janapolasek/wp-content/uploads/2018/12/Collagen_Jana_Flow_Sky.jpg",
+      "height": 1001,
+      "width": 812,
+      "orientation": "portrait"
+    }
+  }
+}

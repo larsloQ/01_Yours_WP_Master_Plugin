@@ -1,0 +1,68 @@
+{
+  "id": 597,
+  "title": "Trentino1",
+  "filename": "Trentino1.jpg",
+  "url": "http://localhost/janapolasek/wp-content/uploads/2019/01/Trentino1.jpg",
+  "link": "http://localhost/janapolasek/592-2/trentino1/",
+  "alt": "",
+  "author": "1",
+  "description": "",
+  "caption": "",
+  "name": "trentino1",
+  "status": "inherit",
+  "uploadedTo": 592,
+  "date": "2019-01-19T20:57:02.000Z",
+  "modified": "2019-01-19T20:57:02.000Z",
+  "menuOrder": 0,
+  "mime": "image/jpeg",
+  "type": "image",
+  "subtype": "jpeg",
+  "icon": "http://localhost/janapolasek/wp-content/mu-plugins/media-library-assistant/images/crystal/image.png",
+  "dateFormatted": "January 19, 2019",
+  "nonces": {
+    "update": "ba7fce89b9",
+    "delete": "10a7ed1901",
+    "edit": "51b74282a7"
+  },
+  "editLink": "http://localhost/janapolasek/wp-admin/post.php?post=597&action=edit",
+  "meta": false,
+  "authorName": "janapolasek",
+  "uploadedToLink": "http://localhost/janapolasek/wp-admin/post.php?post=592&action=edit",
+  "uploadedToTitle": "(no title)",
+  "filesizeInBytes": 732911,
+  "filesizeHumanReadable": "716 KB",
+  "context": "",
+  "height": 1333,
+  "width": 2000,
+  "orientation": "landscape",
+  "sizes": {
+    "thumbnail": {
+      "height": 150,
+      "width": 150,
+      "url": "http://localhost/janapolasek/wp-content/uploads/2019/01/Trentino1-150x150.jpg",
+      "orientation": "landscape"
+    },
+    "medium": {
+      "height": 200,
+      "width": 300,
+      "url": "http://localhost/janapolasek/wp-content/uploads/2019/01/Trentino1-300x200.jpg",
+      "orientation": "landscape"
+    },
+    "large": {
+      "height": 682,
+      "width": 1024,
+      "url": "http://localhost/janapolasek/wp-content/uploads/2019/01/Trentino1-1024x682.jpg",
+      "orientation": "landscape"
+    },
+    "full": {
+      "url": "http://localhost/janapolasek/wp-content/uploads/2019/01/Trentino1.jpg",
+      "height": 1333,
+      "width": 2000,
+      "orientation": "landscape"
+    }
+  },
+  "compat": {
+    "item": "<input type=\"hidden\" name=\"attachments[597][menu_order]\" value=\"0\" /><p class=\"media-types media-types-required-info\">Required fields are marked <span class=\"required\">*</span></p>\n\t\t\t<table class=\"compat-attachment-fields\">\t\t<tr class='compat-field-attachment_category'>\t\t\t<th scope='row' class='label'><label for='attachments-597-attachment_category'><span class='alignleft'>Att. Categories</span><br class='clear' /></label></th>\n\t\t\t<td class='field'><input type='text' class='text' id='attachments-597-attachment_category' name='attachments[597][attachment_category]' value=''  /></td>\n\t\t</tr>\n\t\t<tr class='compat-field-attachment_tag'>\t\t\t<th scope='row' class='label'><label for='attachments-597-attachment_tag'><span class='alignleft'>Att. Tags</span><br class='clear' /></label></th>\n\t\t\t<td class='field'><input type='text' class='text' id='attachments-597-attachment_tag' name='attachments[597][attachment_tag]' value=''  /></td>\n\t\t</tr>\n\t\t<tr class='compat-field-headline'>\t\t\t<th scope='row' class='label'><label for='attachments-597-headline'><span class='alignleft'>Headline.</span><br class='clear' /></label></th>\n\t\t\t<td class='field'><input type='text' class='text' id='attachments-597-headline' name='attachments[597][headline]' value=''  /></td>\n\t\t</tr>\n\t\t<tr class='compat-field-subhead'>\t\t\t<th scope='row' class='label'><label for='attachments-597-subhead'><span class='alignleft'>Subheadline</span><br class='clear' /></label></th>\n\t\t\t<td class='field'><textarea id='attachments-597-subhead' name='attachments[597][subhead]'></textarea></td>\n\t\t</tr>\n\t\t<tr class='compat-field-link'>\t\t\t<th scope='row' class='label'><label for='attachments-597-link'><span class='alignleft'>Link (optional) (mit http://)</span><br class='clear' /></label></th>\n\t\t\t<td class='field'><input type='text' class='text' id='attachments-597-link' name='attachments[597][link]' value=''  /></td>\n\t\t</tr>\n\t\t<tr class='compat-field-pos_hor'>\t\t\t<th scope='row' class='label'><label for='attachments-597-pos_hor'><span class='alignleft'>Position Rechts?</span><br class='clear' /></label></th>\n\t\t\t<td class='field'><input type='checkbox'  name='attachments[597][pos_hor]' id='attachments[597][pos_hor]'  /></td>\n\t\t</tr>\n\t\t<tr class='compat-field-pos_vert'>\t\t\t<th scope='row' class='label'><label for='attachments-597-pos_vert'><span class='alignleft'>Position Unten?</span><br class='clear' /></label></th>\n\t\t\t<td class='field'><input type='checkbox'  name='attachments[597][pos_vert]' id='attachments[597][pos_vert]'  /></td>\n\t\t</tr>\n\t\t<tr class='compat-field-attachment_category mla-taxonomy-row' style='display: none'>\n\t\t<th class='label' valign='top' scope='row'>\n\t\t<label for='mla-attachments-597-attachment_category'>\n\t\t<span title='Click to toggle' class='alignleft'>Att. Categories</span><br class='clear'>\n\t\t</label></th>\n\t\t<td class='field'>\n\t\t<div class='mla-taxonomy-field'>\n\t\t<input name='mla_attachments[597][attachment_category]' class='text' id='mla-attachments-597-attachment_category' type='hidden' value=''>\n\t\t<div id='mla-taxonomy-attachment_category' class='categorydiv'>\n&lt;- Click to toggle\n\t\t</div>\n\t\t</div>\n\t\t</td>\n\t\t</tr>\n\t\t<tr class='compat-field-attachment_tag mla-taxonomy-row' style='display: none'>\n\t\t<th class='label' valign='top' scope='row'>\n\t\t<label for='mla-attachments-597-attachment_tag'>\n\t\t<span title='Click to toggle' class='alignleft'>Att. Tags</span><br class='clear'>\n\t\t</label></th>\n\t\t<td class='field'>\n\t\t<div class='mla-taxonomy-field'>\n\t\t<input name='mla_attachments[597][attachment_tag]' class='text' id='mla-attachments-597-attachment_tag' type='hidden' value=''>\n\t\t<div id='mla-taxonomy-attachment_tag' class='tagsdiv'>\n&lt;- Click to toggle\n\t\t</div>\n\t\t</div>\n\t\t</td>\n\t\t</tr>\n</table>",
+    "meta": ""
+  }
+}

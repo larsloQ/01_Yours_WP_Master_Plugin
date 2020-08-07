@@ -1,0 +1,38 @@
+{
+  "name": "dmhendricks/wordpress-base-plugin",
+  "type": "wordpress-plugin",
+  "description": "A bloilerplate for WordPress plugins",
+  "keywords": ["wordpress", "plugin", "boilerplate", "carbonfields"],
+  "homepage": "https://2lab.net",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "Daniel M. Hendricks",
+      "homepage": "https://danhendricks.com",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/dmhendricks/wordpress-base-plugin/issues/",
+    "wiki": "https://github.com/dmhendricks/wordpress-base-plugin/wiki/",
+    "source": "https://github.com/dmhendricks/wordpress-base-plugin/"
+  },
+  "require": {
+    "php": ">=7.0",
+    "jjgrainger/posttypes": "^2.0.1",
+    "tgmpa/tgm-plugin-activation": "^2.6.1",
+    "dmhendricks/wordpress-toolkit": "^0.4.1",
+    "underdev/requirements": "^1.3",
+    "inc2734/wp-customizer-framework": "3.2.3",
+    "composer/installers": "^1.0.6"
+  },
+  "autoload": {
+    "psr-4": {
+      "Yours\\Plugin\\": "app/",
+      "WPBP\\CPT_COLUMNS\\" : "vendor/wpbp/cpt_columns/"
+    },
+     "files": [
+            "vendor\/wp-custom-bulk-actions\/custom-bulk-actions.php"
+        ]
+  }
+}

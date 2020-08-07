@@ -1,0 +1,17 @@
+{
+  "prefix": "wpbp",
+  "short_name": "yours_plugin",
+  "object_cache": {
+    "group": "wordpress_yours_plugin_cache",
+    "expire": 86400
+  },
+  "dependencies": {
+    "php": "7.0",
+    "wp": "4.8",
+    "carbon_fields": "2.2.0",
+    "wordpress-toolkit": "0.4.0"
+  },
+  "network": {
+    "default_options_container": "global_settings"
+  }
+}
