@@ -9,18 +9,14 @@ Inspired from, but heavily modified https://github.com/dmhendricks/wordpress-bas
 
 ## Folder Strukture:
 
--app           : contains mostly php files, subfolder by functionality
--- helpers	  : mostly for media/srcset/ functionality
-- languages     : ...
-- vendor        : created by composer
-- wp-content    : the vendor based plugin installs these,  bulk-actions
-- assets        : js and css files, build folder, used by original gulp build process (see https://github.com/dmhendricks/wordpress-base-plugin). not in use
+all relevant code in *app* folder, structured by functionality, see further readme files there (incomplete)
+
 
 ## Requirements
 
 * WordPress 5.2 or higher
 * PHP 7.2 or higher
-	* Carbon Fields is only required for the demo. You're welcome to strip out references if you do not wish to use it.
+* CMB2 as a mu-plugin (https://github.com/CMB2/CMB2)
 
 ## Installation
 1. Put repo in *mu-plugins* and load it in load-mu-plugins.php ( *require WPMU_PLUGIN_DIR.'/yours/yours.php'*). 
