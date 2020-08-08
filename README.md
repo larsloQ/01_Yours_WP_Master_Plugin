@@ -4,7 +4,8 @@ this setup is in early alpha. might contain inconsistency, bugs and misleading i
 
 ## Description
 This is a boilerplate WordPress plugin featuring namespace autoloading.
-Namespace autoloading also you to just duplicate classes, rename file and classname and frees you of the burden to have unique function names (like pluginname_function_name)
+Namespace autoloading also you to just duplicate classes, rename file and classname and frees you of the burden to have unique function names (like pluginname_function_name).
+Inspired from, but heavily modified https://github.com/dmhendricks/wordpress-base-plugin
 
 ## Folder Strukture:
 
