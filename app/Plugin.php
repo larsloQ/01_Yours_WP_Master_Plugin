@@ -63,7 +63,7 @@ class Plugin
         // new Widgets\Widget_Loader();
 
         /* shortcodes */
-        new Shortcodes\Shortcode_Loader();
+        new Shortcodes\Team();
 
     }
 

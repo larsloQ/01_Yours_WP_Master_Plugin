@@ -7,7 +7,7 @@ class Team extends Plugin {
 
   private $posttype="team";
   // private $taxslugs = ['team-cat','language'];
-  private $taxslugs = ['team-cat','language','macro-region', 'for-maps-only'];
+  // private $taxslugs = ['team-cat','language','macro-region', 'for-maps-only'];
 
   public function __construct() {
   
@@ -37,7 +37,7 @@ class Team extends Plugin {
     $tax = register_extended_post_type( $name, array(
     
     // let's now add all the options for this post type
-      'description' => __( 'For Abma./Team', 'yours' ), /* Custom Type Description */
+      'description' => __( 'Team', 'yours' ), /* Custom Type Description */
       'public' => true,
       'publicly_queryable' => true,
       'exclude_from_search' => false,
@@ -114,9 +114,9 @@ class Team extends Plugin {
       ), 
 
       array(
-        'singular' => __( 'Amba/Team',  self::$textdomain),
-        'plural'   => __( 'Amba/Team', self::$textdomain ),
-        'slug'   => __( 'abmassadors', self::$textdomain ),
+        'singular' => __( 'Team',  self::$textdomain),
+        'plural'   => __( 'Team', self::$textdomain ),
+        'slug'   => __( 'team', self::$textdomain ),
       )
 
   ); /* end of register post type */

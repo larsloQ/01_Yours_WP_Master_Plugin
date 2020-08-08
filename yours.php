@@ -23,9 +23,10 @@ static $requirements = array(
     'php'     => '7.2',
     // 'php_extensions'     => array( 'soap' ),
     'wp'      => '5.2',
-    'plugins' => array(
-        "cmb2/init.php" => array('name' => 'CMB2', 'version' => '2.6'), // underdev_requirements plugin does only check for usual plugins, so this is not working
-    ),
+    // underdev_requirements plugin does only check for usual plugins, so this is not working
+    // 'plugins' => array(
+    //     "cmb2/init.php" => array('name' => 'CMB2', 'version' => '2.6'), 
+    // ),
     'theme'   => array(
         'slug' => 'yours',
         'name' => 'Yours',
