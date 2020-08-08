@@ -2,7 +2,12 @@
   "name": "dmhendricks/wordpress-base-plugin",
   "type": "wordpress-plugin",
   "description": "A bloilerplate for WordPress plugins",
-  "keywords": ["wordpress", "plugin", "boilerplate", "carbonfields"],
+  "keywords": [
+    "wordpress",
+    "plugin",
+    "boilerplate",
+    "carbonfields"
+  ],
   "homepage": "https://2lab.net",
   "license": "GPL-2.0-or-later",
   "authors": [
@@ -19,27 +24,20 @@
   },
   "require": {
     "php": ">=7.0",
-    "jjgrainger/posttypes": "^2.0.1",
-    "tgmpa/tgm-plugin-activation": "^2.6.1",
+    "wpbp/cpt_columns": "1.0.*",
     "dmhendricks/wordpress-toolkit": "^0.4.1",
-    "underdev/requirements": "^1.3",
-    "inc2734/wp-customizer-framework": "3.2.3",
+    "johnbillion/extended-cpts": "4.3.*",
     "composer/installers": "^1.0.6",
-    "htmlburger/carbon-fields-plugin": "^3.1.8",
-        "wpbp\/widgets-helper": "1.0.*",
-        "wpbp\/template": "1.0.*",
-        "wpbp\/cpt_columns": "1.0.*",
-        "wpbp\/language": "1.0.*",
-        "seravo/wp-custom-bulk-actions": "^0.1.4",
-        "johnbillion\/extended-cpts": "4.3.*"
+    "seravo/wp-custom-bulk-actions": "^0.1.4",
+    "underdev/requirements": "^1.3"
   },
   "autoload": {
     "psr-4": {
       "Yours\\Plugin\\": "app/",
-      "WPBP\\CPT_COLUMNS\\" : "vendor/wpbp/cpt_columns/"
+      "WPBP\\CPT_COLUMNS\\": "vendor/wpbp/cpt_columns/"
     },
-     "files": [
-            "vendor\/wp-custom-bulk-actions\/custom-bulk-actions.php"
-        ]
+    "files": [
+      "vendor/seravo/wp-custom-bulk-actions/custom-bulk-actions.php"
+    ]
   }
 }

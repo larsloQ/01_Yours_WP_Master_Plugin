@@ -1,7 +1,8 @@
 <?php
 namespace Yours\Plugin\AdminColumns;
-
 use Yours\Plugin\Plugin;
+
+
 
 /* 
  attention with line $queryargs['orderby'] = 'meta_value_num';
@@ -10,10 +11,13 @@ use Yours\Plugin\Plugin;
  to orderby string value
  */
 
+/**
+ * Class provides functionality to quick edit meta-value in quickedit (fieldName) 
+ */
 class NumberInMap extends Plugin
 {
     private $fieldName   = "casestudy_number";
-    private $postTypes   = ['contribute', 'casestudy', 'team', 'partner'];
+    private $postTypes   = ['team'];
     // private $unique;
     private $JS_FILENAME = "populatequickedit-num_in_map";
 

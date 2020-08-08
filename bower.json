@@ -1,7 +1,0 @@
-{
-  "name": "wordpress-base-plugin",
-  "dependencies": {
-    "jq.waituntilexists": "*"
-  },
-  "private": true
-}

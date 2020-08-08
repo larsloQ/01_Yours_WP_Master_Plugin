@@ -12,15 +12,6 @@ class Helpers  {
         self::$initialized = true;
     }
 
-  /**
-   * media id is wp attachment id (image id)
-  */ 
-  public static function media_id_to_srcset($media_id)
-    {
-       var_dump($media_id);
-    }
-
-
 
     /* this is incomple, for now using wp functions */
     public static function get_picture_markup($mediaID,$max_media_size="medium_large"){

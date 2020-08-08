@@ -17,8 +17,6 @@ class Team extends Plugin {
   public function __construct() {
 
     add_action( 'cmb2_init', array($this,'sidebar_info_box') );
-    // add_action( 'cmb2_init', array($this,'yours_team_metabox') );
-    // add_action( 'add_meta_boxes', array($this,'my_plugin_meta') );
   }
 
      private static $instructions = "

@@ -1,41 +1,41 @@
 <?php
 /**
  * @wordpress-plugin
- * Plugin Name:       01_Yours
- * Plugin URI:        
- * Description:       Central Plugin for LIAISON, based on https://github.com/dmhendricks/wordpress-base-plugin
+ * Plugin Name:       01_Yours_Master_Plugin
+ * Plugin URI:        https://github.com/larsloQ/01_Yours_WP_Master_Plugin.git
+ * Description:       A Master Plugin defining all building blocks of a custom wordpress (post-types, meta-boxes, taxonomies, etx). based on (but heavily modified) https://github.com/dmhendricks/wordpress-base-plugin
  * Version:           0.5.4
- * Author:            larslo 
+ * Author:            larslo
  * Author URI:        https://larslo.de
  * License:           GPL-2.0
  * License URI:       https://opensource.org/licenses/GPL-2.0
  * Text Domain:       yours-plugin
  * Domain Path:       languages
- * GitHub Plugin URI: 
+ * GitHub Plugin URI:
  */
 
-/*	Copyright 2018	  Daniel M. Hendricks (https://www.danhendricks.com/)
+if (!defined('ABSPATH')) {
+    die();
+}
 
-		This program is free software; you can redistribute it and/or
-    modify it under the terms of the GNU General Public License
-    as published by the Free Software Foundation; either version 2
-    of the License, or (at your option) any later version.
+/* Requirements (checked by plugin called 01_Yours_Master_Plugin underdev-requirements */
+static $requirements = array(
+    'php'     => '7.2',
+    // 'php_extensions'     => array( 'soap' ),
+    'wp'      => '5.2',
+    'plugins' => array(
+        "cmb2/init.php" => array('name' => 'CMB2', 'version' => '2.6'), // underdev_requirements plugin does only check for usual plugins, so this is not working
+    ),
+    'theme'   => array(
+        'slug' => 'yours',
+        'name' => 'Yours',
+    ),
+);
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
 
-    You should have received a copy of the GNU General Public License
-    along with this program; if not, write to the Free Software
-    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
-*/
-
-if( !defined( 'ABSPATH' ) ) die();
-
-if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
-  require( __DIR__ . '/vendor/autoload.php' );
+if (file_exists(__DIR__ . '/vendor/autoload.php')) {
+    require __DIR__ . '/vendor/autoload.php';
 }
 
 // Initialize plugin
-\Yours\Plugin\Plugin::instance();
+\Yours\Plugin\Plugin::instance($requirements);

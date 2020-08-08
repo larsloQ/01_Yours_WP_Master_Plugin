@@ -1,311 +1,105 @@
 <?php
 namespace Yours\Plugin;
-use WordPress_ToolKit\ObjectCache;
-use WordPress_ToolKit\ConfigRegistry;
-use WordPress_ToolKit\Helpers\ArrayHelper;
-// use Carbon_Fields\Container;
-// use Carbon_Fields\Field;
 
+class Plugin
+{
+    private static $instance;
+    public static $requirements;
+    public static $textdomain;
+    public static $config;
 
-class Plugin extends \WordPress_ToolKit\ToolKit {
+    public static function instance($requirements = array(), $textdomain = "yours")
+    {
 
-  private static $instance;
-  public static $textdomain;
-  public static $config;
-  // https://github.com/Kubitomakita/Requirements
-  private static $requirements = array(
-    'php'                => '7.2',
-  // 'php_extensions'     => array( 'soap' ),
-  'wp'                 => '5',
-  // 'plugins'            => array(
-     
-  //    "cmb2/init.php" => array( 'name' => 'CMB2', 'version' => '2.6' ),
-  // ),
-  'theme'              => array(
-    'slug' => 'yours',
-    'name' => 'Yours'
-  ),
-  // 'function_collision' => array( 'my_function_name', 'some_other_potential_collision' ),
-  // 'class_collision'    => array( 'My_Test_Plugin', 'My_Test_Plugin_Other_Class' ),
-  // 'custom_check'       => 'thing to check', // this is not default check and will have to be registered
+        if (!isset(self::$instance) && !(self::$instance instanceof Plugin)) {
+            self::$instance     = new Plugin;
+            self::$requirements = $requirements;
+            self::$textdomain   = $textdomain;
+            add_action('plugins_loaded', array(self::$instance, 'load_plugin'));
+        }
 
-  );
-
-  public static function instance() {
-
-    if ( !isset( self::$instance ) && !( self::$instance instanceof Plugin ) ) {
-
-      self::$instance = new Plugin;
-
-      // Load plugin configuration
-      self::$config = self::$instance->init( dirname( __DIR__ ), trailingslashit( dirname( __DIR__ ) ) . 'plugin.json' );
-      self::$config->merge( new ConfigRegistry( [ 'plugin' => self::$instance->get_current_plugin_meta( ARRAY_A ) ] ) );
-
-      // Set Text Domain
-      self::$textdomain = self::$config->get( 'plugin/meta/TextDomain' ) ?: self::$config->get( 'plugin/slug' );
-
-      // Define plugin version
-      if ( !defined( __NAMESPACE__ . '\VERSION' ) ) define( __NAMESPACE__ . '\VERSION', self::$config->get( 'plugin/meta/Version' ) );
-
-      // Load dependecies and load plugin logic
-      register_activation_hook( self::$config->get( 'plugin/identifier' ), array( self::$instance, 'activate' ) );
-      add_action( 'plugins_loaded', array( self::$instance, 'load_dependencies' ) );
+        return self::$instance;
 
     }
 
-   
-    return self::$instance;
+    /**
+     * Load plugin classes - Modify as needed, remove features that you don't need.
+     *
+     * @since 0.2.0
+     */
+    public function load_plugin()
+    {
 
-  }
+        if (!$this->verify_dependencies()) {
+            return;
+        }
 
-  /**
-    * Load plugin classes - Modify as needed, remove features that you don't need.
-    *
-    * @since 0.2.0
-    */
-  public function load_plugin() {
+        // Add Customizer panels and options
+        // new Settings\Customizer_Options();
 
+        // Enqueue scripts and stylesheets, all for backend functionality only
+        // new EnqueueScripts();
 
+        /* taxonomies */
+        // new Tax\Taxes();
 
-    if( !$this->verify_dependencies() ) {
-      deactivate_plugins( self::$config->get( 'plugin/identifier' ) );
-      return;
+        /* custom post types */
+        new PostTypes\Team();
+
+        /* metaboxes */
+        new Metaboxes\Team();
+
+        /* quick edit admin columns */
+        new AdminColumns\NumberInMap();
+
+        /* rest api endpoints*/
+        // new Endpoints\All();
+
+        /* gutenberg blocks*/
+        // new Blocks\AllBuildBlocks();
+        // new Blocks\Team();
+
+        /* widgets */
+        // new Widgets\Widget_Loader();
+
+        /* shortcodes */
+        new Shortcodes\Shortcode_Loader();
+
     }
 
-    // Add TGM Plugin Activation notices for required/recommended plugins
-    new TGMPA();
+    /**
+     * Function to verify dependencies
+     *
+     * @param bool $die If true, plugin execution is halted with die(), useful for
+     *    outputting error(s) in during activate()
+     * @return bool
+     * @since 0.2.0
+     */
+    private function verify_dependencies($die = false, $activate = false)
+    {
 
-    // Add admin settings page using Carbon Fields framework
-    // new Settings\Settings_Page();
+        // Check if underDEV_Requirements class is loaded
+        if (!class_exists('underDEV_Requirements')) {
+            if ($die) {
+                die('MU-Plugin "yours" needs an plugin called "underDEV_Requirements" which is required to check other dependencies');
+            } else {
+                return false;
+            }
+        }
 
-    // Add a settings page to the Network Admin (requires multisite)
-    if ( is_multisite() ) new Settings\Network_Settings_Page();
+        $requirements = new \underDEV_Requirements("Yours Master Plugin", self::$requirements);
+        // Display errors if requirements not met
+        if (!$requirements->satisfied()) {
+            if ($die) {
+                die($requirements->notice());
+            } else {
+                add_action('admin_notices', array($requirements, 'notice'));
+                return false;
+            }
+        }
 
-    // Add Customizer panels and options
-    // new Settings\Customizer_Options();
+        return true;
 
-    // Enqueue scripts and stylesheets
-    // new EnqueueScripts();
-
-    new Tax\Taxes();
-
-    // Create custom post types
-    new PostTypes\PostTypes_Loader();
-
-    new Settings\Parents_Settings_Page();
-
-
-
-    new Metaboxes\Team();
-    new Metaboxes\Partner();
-    new Metaboxes\Glossary();
-    new Metaboxes\CaseStudy();
-    new Metaboxes\RelatedProjects();
-    new Metaboxes\Hero\Hero();
-    new Metaboxes\Links();
-    new Metaboxes\Mail();
-    new Metaboxes\Map();
-
-
-    new AdminColumns\NumberInMap();
-
-
-    new Endpoints\All();
-
-    new Blocks\AllBuildBlocks();
-    new Blocks\Team();
-    new Blocks\Hero();
-    new Blocks\Mixin();
-    new Blocks\LiaisonColumns();
-
-    // Load custom widgets
-    // new Widgets\Widget_Loader();
-
-    // Load shortcodes
-    new Shortcodes\Shortcode_Loader();
-
-    // Perform core plugin logic
-    new Core();
-
-  }
-
-  /**
-    * Check plugin dependencies on activation.
-    *
-    * @since 0.2.0
-    */
-  public function activate() {
-
-    $this->verify_dependencies( true, true );
-
-  }
-
-  /**
-    * Initialize Carbon Fields and load plugin logic
-    *
-    * @since 0.2.0
-    */
-  public function load_dependencies() {
-
-    /* Carbonfields causes a nasty JS-Error 
-    see https://wpdevelopment.courses/articles/how-to-fix-activatemode-is-not-a-function-error-in-gutenberg/
-    LFK 2019-12-25_21.26.08
-    */
-
-    // if( class_exists( 'Carbon_Fields\\Carbon_Fields' ) ) {
-    //   add_action( 'after_setup_theme', array( 'Carbon_Fields\\Carbon_Fields', 'boot' ) );
-    // }
-
-    add_action( 'after_setup_theme', array( $this, 'load_plugin' ));
-
-  }
-
-  /**
-    * Function to verify dependencies, such as if an outdated version of Carbon
-    *    Fields is detected.
-    *
-    * @param bool $die If true, plugin execution is halted with die(), useful for
-    *    outputting error(s) in during activate()
-    * @return bool
-    * @since 0.2.0
-    */
-  private function verify_dependencies( $die = false, $activate = false ) {
-
-    // Check if underDEV_Requirements class is loaded
-    if( !class_exists( 'underDEV_Requirements' ) ) {
-      if( $die ) {
-        die( sprintf( __( '<strong>%s</strong>: One or more dependencies failed to load', self::$textdomain ), __( self::$config->get( 'plugin/meta/Name' ) ) ) );
-      } else {
-        return false;
-      }
     }
-   
-
-    $requirements = new \underDEV_Requirements( __( self::$config->get( 'plugin/meta/Name' ), self::$textdomain ), self::$config->get( 'dependencies' ) );
-
-
-    // Check for WordPress Toolkit
-    $requirements->add_check( 'wordpress-toolkit', function( $val, $res ) {
-      $wordpress_toolkit_version = defined( '\WordPress_ToolKit\VERSION' ) ? \WordPress_ToolKit\VERSION : null;
-      if( !$wordpress_toolkit_version ) {
-        $res->add_error( __( 'WordPress ToolKit not loaded.', self::$textdomain ) );
-      } else if( version_compare( $wordpress_toolkit_version, self::$config->get( 'dependencies/wordpress-toolkit' ), '<' ) ) {
-        $res->add_error( sprintf( __( 'An outdated version of WordPress ToolKit has been detected: %s (&gt;= %s required).', self::$textdomain ), $wordpress_toolkit_version, self::$config->get( 'dependencies/wordpress-toolkit' ) ) );
-      }
-    });
-
-    // Check for Carbon Fields
-    $requirements->add_check( 'carbon_fields', function( $val, $res ) use ( &$activate ) {
-      if( $activate ) return;
-      $cf_version = defined('\\Carbon_Fields\\VERSION') ? current( explode( '-', \Carbon_Fields\VERSION ) ) : null;
-      if( !$cf_version ) {
-        $res->add_error( sprintf( __( 'The <a href="%s" target="_blank">Carbon Fields</a> framework is not loaded.', self::$textdomain ), 'https://carbonfields.net/release-archive/' ) );
-      } else if( version_compare( $cf_version, self::$config->get( 'dependencies/carbon_fields' ), '<' ) ) {
-        $res->add_error( sprintf( __( 'An outdated version of Carbon Fields has been detected: %s (&gt;= %s required).', self::$textdomain ), $cf_version, self::$config->get( 'dependencies/carbon_fields' ) ) );
-      }
-    });
-
-
-  
-   
-
-    // Display errors if requirements not met
-    if( !$requirements->satisfied() ) {
-      if( $die ) {
-        die( $requirements->notice() );
-      } else {
-        add_action( 'admin_notices', array( $requirements, 'notice' ) );
-        return false;
-      }
-    }
-
-    // Display errors if requirements not met
-     $requirements = new \underDEV_Requirements( self::$config->get( 'plugin/meta/Name' ), self::$requirements );
-
-    if( !$requirements->satisfied() ) {
-      add_action( 'admin_notices', array( $requirements, 'notice' ) );
-      return false;
-    }
-
-    return true;
-
-  }
-
-  /**
-    * Append a field prefix as defined in $config
-    *
-    * @param string $field_name The string/field to prefix
-    * @param string $before String to add before the prefix
-    * @param string $after String to add after the prefix
-    * @return string Prefixed string/field value
-    * @since 0.1.0
-    */
-  public static function prefix( $field_name = null, $before = '', $after = '_' ) {
-
-    $prefix = $before . self::$config->get( 'prefix' ) . $after;
-    return $field_name !== null ? $prefix . $field_name : $prefix;
-
-  }
-
-  /**
-    * Get Carbon Fields option, with object caching (if available). Currently
-    *   only supports plugin options because meta fields would need to have the
-    *   cache flushed appropriately.
-    *
-    * @param string $key The name of the option key
-    * @param bool $cache Whether or not to attempt to get cached value
-    * @return mixed The value of specified Carbon Fields option key
-    * @link https://carbonfields.net/docs/containers-usage/ Carbon Fields containers
-    * @since 0.2.0
-    *
-    */
-  public static function get_carbon_plugin_option( $key, $cache = true ) {
-
-    $key = self::prefix( $key );
-
-    if( $cache ) {
-      // Attempt to get value from cache, else fetch value from database
-      return self::$cache->get_object( $key, function() use ( &$key ) {
-        return carbon_get_theme_option( $key );
-      });
-    } else {
-      // Return uncached value
-      return carbon_get_theme_option( $key );
-    }
-
-  }
-
-  /**
-    * Get Carbon Fields network container option (if multisite enabled)
-    *
-    * @param string $key The name of the option key
-    * @param string $container The name of the Carbon Fields network container
-    * @param bool $cache Whether or not to attempt to get cached value
-    * @param int $site_id The network site ID to use - default: SITE_ID_CURRENT_SITE
-    * @return mixed The value of specified Carbon Fields option key
-    * @link https://carbonfields.net/docs/containers-usage/ Carbon Fields containers
-    * @since 0.5.0
-    *
-    */
-  public static function get_carbon_network_option( $key, $cache = true, $site_id = null ) {
-
-    if( !$site_id ) {
-      if( !defined( 'SITE_ID_CURRENT_SITE' ) ) return null;
-      $site_id = SITE_ID_CURRENT_SITE;
-    }
-
-    $key = self::prefix( $key );
-
-    if( $cache ) {
-      // Attempt to get value from cache, else fetch value from database
-      return self::$cache->get_object( $key, function() use ( &$site_id, &$key ) {
-        return carbon_get_network_option( $site_id, $key );
-      }, null, [ 'network_global' => true ] );
-    } else {
-      // Return uncached value
-      return carbon_get_network_option( $site_id, $key );
-    }
-
-  }
 
 }

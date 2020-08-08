@@ -1,3 +1,2 @@
-# LFK 2019-12-22_14.06.06
-only reguired when using Carbon-Fields.
-not yet
+# Endpoints provided here as a demo are project specific
+# But lets keep the All.php file as a blueprint

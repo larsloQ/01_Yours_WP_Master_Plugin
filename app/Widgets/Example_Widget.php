@@ -1,8 +1,6 @@
 <?php
 namespace Yours\Plugin\Widgets;
 use Yours\Plugin\Plugin;
-use Carbon_Fields\Field;
-use Carbon_Fields\Widget;
 
 /**
  * A simple widget that displays a text field (title) and textarea.

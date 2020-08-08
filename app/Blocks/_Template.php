@@ -1,8 +1,6 @@
 <?php 
 namespace Yours\Plugin\Blocks;
 use Yours\Plugin\Plugin;
-// use Carbon_Fields\Block;
-// use Carbon_Fields\Field;
 
 /*
   Given that certain blocks are binded to certain CPTs this Class can be used as a template.

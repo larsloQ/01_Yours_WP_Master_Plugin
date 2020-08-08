@@ -15,11 +15,10 @@ class All extends Plugin
 
     public function yours_register_rest_routes()
     {
-        // http://larslo.larslo/liaison/wp-json/yours/maps/TAXNAME/TERM_IDs,Comma Separeted
+        // Endpoint available at {WPURL/TAXNAME/TERM_IDs,Comma Separeted
         register_rest_route("/yours/maps", "/tax/(?P<tax>[a-zA-Z0-9-]+)/(?P<term_ids>[0-9,]+)", array(
             // Here we register the readable endpoint for collections.
             'methods'             => 'GET',
-            // 'args' => array('tax','term_id'),
             'args'                => array(
                 'tax'      => array(
                     'validate_callback' => function ($param, $request, $key) {
@@ -37,9 +36,7 @@ class All extends Plugin
                     },
                 ),
             ),
-            // 'callback'  => array( $this, 'get_items' ),
             'callback'            => array($this, "items_via_tax"),
-            // 'permission_callback' => array( $this, 'get_items_permissions_check' ),
             'permission_callback' => function () {return true;},
             // Register our schema callback.
             // 'schema' => array( $this, 'get_item_schema' ),
@@ -50,7 +47,6 @@ class All extends Plugin
         register_rest_route("/yours/maps", "/ct/(?P<ct>[a-zA-Z0-9-,]+)", array(
             // Here we register the readable endpoint for collections.
             'methods'             => 'GET',
-            // 'args' => array('tax','term_id'),
             'args'                => array(
                 'ct' => array(
                     'validate_callback' => function ($param, $request, $key) {
@@ -128,15 +124,6 @@ class All extends Plugin
                         "number"         => $num,
                         "contact_person" => $meta['contact_person'][0],
                         "contact_mail"   => $meta['contact_mail'][0],
-                        // "number" => $meta['casestudy_number'][0],
-                        // "content" => $post->post_content,
-                        // "type" => $post->post_type,
-                        // "size" => $size,
-                        // "link" => $link,
-                        // "doctype" => $doctype,
-                        // "language" => $language,
-                        // "thema" => $thema,
-                        // "country" => $country,
                     );
                 }
             }

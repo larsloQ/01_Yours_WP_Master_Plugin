@@ -7,7 +7,6 @@ class Team extends Plugin
 
   public function __construct() {
 
-    // Usage: [hello name="Daniel"]
     if ( ! shortcode_exists( 'team' ) ) {
         add_shortcode( 'team', array( $this, 'shortcode' ) );
     }
@@ -58,8 +57,6 @@ class Team extends Plugin
     }
     $out .=  '</div>';
     $out .=  '</section>';
-
-   
 
     return $out;
 
