@@ -31,7 +31,7 @@ all relevant code in *app* folder, structured by functionality, see further read
 ## Features
 
 * Namespaces & dependency autoloading
-* Dependency checking via [Requirements](https://packagist.org/packages/underdev/requirements)
+* ~Dependency checking via [Requirements](https://packagist.org/packages/underdev/requirements)~
 * Powered by [Composer]
 * ~Object caching (where available; [usage examples](https://github.com/dmhendricks/wordpress-toolkit/wiki/ObjectCache))~
 * ~Easy installable ZIP file generation: `npm run zip`~
